@@ -7,9 +7,8 @@ var jwttoken = require("jsonwebtoken");
 var config = require('../../config');
 
 exports.getuser = function (req, res) {
-    User.findOne({username: req.body.username}).select('name username password ').exec(function (err, user) {
+    User.findOne({username: req.body.username}).select('username').exec(function (err, user) {
         if (err)
-
             throw err;
         if (!user) {
             return res.json({message: "Password not match.",status:false});
@@ -19,7 +18,7 @@ exports.getuser = function (req, res) {
                 username: user.username
             }, config.secret, {expiresInMinutes: 1440});
             var res_user ={name:user.name,username:user.username,email:user.email};
-            return res.json({message: "enjoy token",status:true, user: res_user, token: token});
+            return res.json({message: "enjoy token",status:200, user: res_user, token: token});
         }
     });
 }

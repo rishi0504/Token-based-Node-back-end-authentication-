@@ -1,0 +1,12 @@
+{
+  "message": "enjoy token.",
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoicmlzaGFiaCIsInVzZXJuYW1lIjoicmlzaGFiaCIsImlhdCI6MTQ1NDk1ODQ5M30.TWkKUWZJ1zHIQVT9kD_xEm2UnwEek1LqpX4B_KAcF6o",
+  "user": {
+    "__v": 0,
+    "email": "rajrishi0504@gmail.com",
+    "username": "rishabh",
+    "password": "$2a$10$DNWjkwmOzWK.WF.wM.Hnq.xZAbE/WG7ZNoTJ96tbp7lwPCIrVnS32",
+    "name": "rishabh",
+    "_id": "56b8e79c861237c00eb2fa22"
+  }
+}

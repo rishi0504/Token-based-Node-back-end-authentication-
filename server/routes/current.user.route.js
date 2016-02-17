@@ -4,34 +4,16 @@
 
 var jwt = require('jsonwebtoken');
 var config = require('../../config');
-
+var cors = require('cors');
 var current_user = require('../controllers/current.user.controller');
 module.exports = function (app)
 {
-
-    app.use(function (req, res, next) {
-        res.setHeader('Access-Control-Allow-Origin', '*');
-        res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
-        res.setHeader('Access-Control-Allow-Methods', 'X-Requested-With,Content-Type,Authorization');
-
-        var token = req.headers['x-access-token'];
-        if (token) {
-            jwt.verify(token, config.secret, function (err, decoded) {
-                if (err) {
-                    return res.status(403).send({success: false, message: "failed to authenticate."});
-                } else {
-                    req.decoded = decoded;
-                    next();
-                }
-            });
-        } else {
-            return res.status(403).send({
-                success: false,
-                message: 'No token provided.'
-            });
-        }
-
+    app.use(cors(),function(req,res,next){
+        res.header("Access-Control-Allow-Origin","*");
+        res.header('Access-Control-Allow-Methods', 'POST,GET,PUT,DELETE,OPTIONS');
+        res.header('Access-Control-Allow-Headers', 'accept');
+        next();
     });
 
-        app.post('/user/getdetail' ,current_user.getdetail);
+    app.get('/user/getdetail' ,current_user.getdetail);
 }
