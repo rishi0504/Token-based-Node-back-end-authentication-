@@ -5,7 +5,7 @@
 var User = require('../models/user.model');
 var jwttoken = require("jsonwebtoken");
 var config = require('../../config');
-
+var nodemailer = require('nodemailer');
 exports.add = function (req, res) {
 
     var user = new User();
@@ -23,11 +23,30 @@ exports.add = function (req, res) {
                 return res.send(err);
             }
         } else {
+            var mailtransporter = nodemailer.createTransport({
+                service: 'Gmail',
+                auth: {
+                    user: config.adminemail,
+                    pass: config.adminpassword
+                }
+            });
+
+            var mailOptions = {
+                from : config.adminemail,
+                to : user.email,
+                subject : "Testing nodemailer",
+                text : "Hello this is rishabh tiwari testing the node mailer features."
+            }
+
+            mailtransporter.sendMail(mailOptions,function(error,info){
+                if(err) {
+                    console.log(err);
+                }else{
+                    console.log("Mail sent : "+ info);
+                }
+            })
             var token = jwttoken.sign({name: user.name, username: user.username}, config.secret, {expires: 1440});
-            return res.json({message: "enjoy token.", token: token, user: user});
+            return res.json({token: token, user: user, status: 200});
         }
-
     });
-
-
 }

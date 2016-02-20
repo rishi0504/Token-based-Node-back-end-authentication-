@@ -4,5 +4,7 @@
 module.exports = {
     port: process.env.PORT || 9000,
     database :"mongodb://localhost/scratch_dev",
-    secret:"ijustlovethistechnology"
+    secret:"ijustlovethistechnology",
+    adminemail:"your email id",
+    adminpassword :"password"
 }

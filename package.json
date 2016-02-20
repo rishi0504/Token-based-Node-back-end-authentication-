@@ -17,8 +17,10 @@
     "jsonwebtoken": "^5.5.4",
     "mongoose": "^4.4.3",
     "morgan": "^1.6.1",
+    "nodemailer": "^2.2.1",
     "nodemon": "^1.8.1",
     "parse-http-header": "^1.0.0",
-    "passport": "^0.3.2"
+    "passport": "^0.3.2",
+    "websmscom": "^1.0.2"
   }
 }
