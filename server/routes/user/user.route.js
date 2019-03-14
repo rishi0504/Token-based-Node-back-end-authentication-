@@ -3,9 +3,9 @@
  */
 
 var jwt = require('jsonwebtoken');
-var config = require('../../config');
+var config = require('../../../config');
 var cors = require('cors');
-var current_user = require('../controllers/current.user.controller');
+var current_user = require('../../controllers/user/user.controller');
 module.exports = function (app)
 {
     app.use(cors(),function(req,res,next){

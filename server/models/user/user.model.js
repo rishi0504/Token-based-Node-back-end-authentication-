@@ -12,6 +12,7 @@ var UserSchema = new Schema({
     password: {type: String, required: true, select: false},
     email:String,
     dob:  { type: Date, default: null },
+    isUserAdmin:{ type: Boolean, default: false }
 });
 
 UserSchema.pre('save', function (next) {

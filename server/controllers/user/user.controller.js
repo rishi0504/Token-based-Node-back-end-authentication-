@@ -2,14 +2,14 @@
  * Created by Rishabh on 2/3/2016.
  */
 
-var User = require('../models/user.model');
-var config = require('../../config');
+var User = require('../../models/user/user.model');
+var config = require('../../../config');
 exports.getdetail = function(req,res){
 
     var token = req.headers['x-access-token'];
     var username = req.headers['username'];
     if(token){
-        User.find({username: username}, function (err, user) {
+        User.findOne({username: username}, function (err, user) {
             if (err) {
                 return res.send(err);
             } else {
