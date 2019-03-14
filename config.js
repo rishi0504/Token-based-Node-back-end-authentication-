@@ -3,8 +3,8 @@
  */
 module.exports = {
     port: 2999,
-    database :"",//url of mongodb dev environment.
-    secret:"your secret for hashing password",
-    adminemail:"",
-    adminpassword :""
+    database: "",//url of mongodb dev environment.
+    secret: "your secret for hashing password",
+    adminemail: "",
+    adminpassword: ""
 }

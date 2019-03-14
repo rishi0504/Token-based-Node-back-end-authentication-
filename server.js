@@ -47,10 +47,6 @@ require('./server/routes/standard/standard.route')(app, express);
 //==============================End==============================
 
 
-app.get('/', function (req, res) {
-    res.json({ method: "Get method is called." });
-});
-
 app.listen(config.port, function () {
     console.log("Server is running on " + config.port);
 })
